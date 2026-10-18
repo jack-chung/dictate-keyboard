@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_app_name" translatable="false">Dictate Custom</string>
+    <string name="custom_voice_ime_name" translatable="false">Dictate Custom voice input</string>
+    <item name="floris_app_name" type="string" translatable="false">@string/custom_app_name</item>
+    <string name="app_name_full" translatable="false">Dictate Custom</string>
+</resources>

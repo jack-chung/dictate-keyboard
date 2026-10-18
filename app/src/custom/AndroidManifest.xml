@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Dedicated labels also avoid build-type/localized resources hiding the fork identity. -->
+    <application android:label="@string/custom_app_name" tools:replace="android:label">
+        <service android:name="dev.patrickgold.florisboard.FlorisImeService"
+            android:label="@string/custom_app_name" tools:replace="android:label" />
+        <service android:name="dev.patrickgold.florisboard.FlorisSpellCheckerService"
+            android:label="@string/custom_app_name" tools:replace="android:label" />
+        <service android:name="dev.patrickgold.florisboard.dictate.recognition.DictateVoiceInputMethodService"
+            android:label="@string/custom_voice_ime_name" tools:replace="android:label" />
+        <activity-alias android:name="dev.patrickgold.florisboard.SettingsLauncherAlias"
+            android:label="@string/custom_app_name" tools:replace="android:label" />
+    </application>
+</manifest>

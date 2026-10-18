@@ -96,11 +96,11 @@ build() {
   local TYPE="$1"
   BUILD_LOG_PATH="$OUTPUT_DIR/tmp_$TYPE.log"
   if [ "$TYPE" = "apk" ]; then
-    TASK="assemble$GRADLE_TASK_TC"
-    BUILD_DIR="app/build/outputs/apk/$GRADLE_TASK_LC"
+    TASK=":app:assembleOriginal$GRADLE_TASK_TC"
+    BUILD_DIR="app/build/outputs/apk/original/$GRADLE_TASK_LC"
   elif [ "$TYPE" = "aab" ]; then
-    TASK="bundle$GRADLE_TASK_TC"
-    BUILD_DIR="app/build/outputs/bundle/$GRADLE_TASK_LC"
+    TASK=":app:bundleOriginal$GRADLE_TASK_TC"
+    BUILD_DIR="app/build/outputs/bundle/original$GRADLE_TASK_TC"
   else
     echo "fatal: unknown type '$TYPE', aborting..."
   fi
@@ -116,7 +116,7 @@ build() {
     BUILD_FILE_NAME="$(jq -r ".elements[].outputFile" "$BUILD_METADATA_JSON")"
     BUILD_VERSION_NAME="$(jq -r ".elements[].versionName" "$BUILD_METADATA_JSON")"
   else
-    BUILD_FILE_NAME="app-$GRADLE_TASK_LC.aab"
+    BUILD_FILE_NAME="app-original-$GRADLE_TASK_LC.aab"
     if [ -z "$BUILD_VERSION_NAME" ]; then
       echo "fatal: BUILD_VERSION_NAME was empty, should not be the case if apk is built before aab, aborting..."
       return 1

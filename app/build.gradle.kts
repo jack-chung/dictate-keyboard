@@ -107,6 +107,27 @@ configure<ApplicationExtension> {
         }
     }
 
+    flavorDimensions += "identity"
+    productFlavors {
+        create("original") {
+            dimension = "identity"
+            isDefault = true
+        }
+        create("custom") {
+            dimension = "identity"
+            applicationIdSuffix = ".jack"
+            val customVersion = Properties().apply {
+                rootProject.file("custom-version.properties").inputStream().use { load(it) }
+            }
+            versionCode = customVersion.getProperty("versionCode").toInt().also {
+                require(it > 0) { "Custom versionCode must be positive" }
+            }
+            versionName = customVersion.getProperty("versionName").also {
+                require(!it.isNullOrBlank()) { "Custom versionName must not be blank" }
+            }
+        }
+    }
+
     buildFeatures {
         buildConfig = true
         compose = true
@@ -189,6 +210,20 @@ configure<ApplicationExtension> {
         unitTests.all {
             it.useJUnitPlatform()
         }
+    }
+}
+
+// Release/beta build types carry upstream's prerelease suffix. Keep that out of the
+// independent custom sequence, while preserving the existing debug/benchmark markers.
+androidComponents {
+    onVariants(selector().withFlavor("identity" to "custom")) { variant ->
+        val customVersionName = android.productFlavors.getByName("custom").versionName!!
+        val suffix = when (variant.buildType) {
+            "debug" -> "-debug+${getGitCommitHash(short = true).get()}"
+            "benchmark" -> "-bench+${getGitCommitHash(short = true).get()}"
+            else -> ""
+        }
+        variant.outputs.forEach { it.versionName.set(customVersionName + suffix) }
     }
 }
 
