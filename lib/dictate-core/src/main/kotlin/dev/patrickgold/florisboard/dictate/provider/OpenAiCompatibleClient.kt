@@ -29,6 +29,7 @@ import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Credentials
 import okhttp3.Headers
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
@@ -299,7 +300,11 @@ class OpenAiCompatibleClient(
                 } else if (lang != null) {
                     // Every older model hints a single language, and the docs are explicit that the two
                     // fields must never be sent together.
-                    addFormDataPart("language", lang)
+                    val wireLanguage = if (
+                        config.normalizedBaseUrl.toHttpUrl().host == "api.groq.com" &&
+                        request.model in setOf("whisper-large-v3", "whisper-large-v3-turbo")
+                    ) groqWhisperLanguage(lang) else lang
+                    addFormDataPart("language", wireLanguage)
                 }
                 if (!request.prompt.isNullOrEmpty()) addFormDataPart("prompt", request.prompt)
                 if (temperature != null) addFormDataPart("temperature", temperature.toString())
@@ -1861,6 +1866,13 @@ class OpenAiCompatibleClient(
     )
 
     companion object {
+        /** Groq Whisper accepts bare Cantonese; keep regional identifiers in the app and other APIs. */
+        internal fun groqWhisperLanguage(language: String): String = when {
+            language.equals("yue-HK", ignoreCase = true) ||
+                language.equals("yue-CN", ignoreCase = true) -> "yue"
+            else -> language
+        }
+
         private val JSON_MEDIA_TYPE = "application/json; charset=utf-8".toMediaType()
         private const val RETRY_DELAY_MS = 3000L
         internal const val OPENROUTER_TRANSCRIPTION_MAX_RETRIES = 0
