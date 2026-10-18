@@ -107,8 +107,9 @@ may offer either installation for external links; internal navigation stays with
 the current app. Fixed Play Store links still refer to the upstream listing. Legacy
 preference names and extension IDs are format identifiers inside each sandbox.
 Wear OS Data Layer requires matching application IDs and certificates, so the
-existing original-ID companion does not pair with the custom phone app. Google Play
-billing products for the original listing should not be assumed available to the
+existing original-ID companion does not pair with the custom phone app. A matching
+custom Wear flavor is documented in [the custom companion guide](custom-wear-companion.md).
+Google Play billing products for the original listing should not be assumed available to the
 custom sideloaded ID. Neither integration is changed by this packaging work.
 
 ## Settings transfer

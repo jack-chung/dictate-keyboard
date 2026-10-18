@@ -71,6 +71,28 @@ configure<ApplicationExtension> {
         compose = true
     }
 
+    // Data Layer peers must share the phone's application ID and signing certificate.
+    // Keep the original Play version band above; custom sideloads use their own sequence.
+    flavorDimensions += "identity"
+    productFlavors {
+        create("original") {
+            dimension = "identity"
+            isDefault = true
+        }
+        create("custom") {
+            dimension = "identity"
+            applicationIdSuffix = ".jack"
+            val customVersion = Properties().apply {
+                rootProject.file("custom-version.properties").inputStream().use { load(it) }
+            }
+            // Optional overrides allow watch-only releases without changing the phone version.
+            versionCode = customVersion.getProperty("wearVersionCode", customVersion.getProperty("versionCode"))
+                .toInt().also { require(it > 0) { "Custom Wear versionCode must be positive" } }
+            versionName = customVersion.getProperty("wearVersionName", customVersion.getProperty("versionName"))
+                .also { require(!it.isNullOrBlank()) { "Custom Wear versionName must not be blank" } }
+        }
+    }
+
     lint {
         // The watch settings screen hosts a ComponentActivity directly (no Fragments), so the
         // activity-result registration is safe; this check is a false positive without a Fragment dep.
