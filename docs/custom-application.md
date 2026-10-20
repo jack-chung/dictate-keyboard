@@ -1,5 +1,11 @@
 # Dictate Custom builds
 
+This guide retains the implementation-stage findings and validation recorded on
+2026-10-18. Its unsigned/key-unavailable observations refer to those builds. The
+owner later reported separately prepared production-signed APKs; their current
+availability and verification status are tracked in [ROADMAP.md](ROADMAP.md).
+See [AGENTS.md](../AGENTS.md) for current authorization and signing policy.
+
 The `identity` flavor dimension shares the existing app sources and namespace
 (`dev.patrickgold.florisboard`). No source packages or directories were renamed.
 `original` is the default Android Studio flavor; `custom` must be selected explicitly.
