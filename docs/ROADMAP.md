@@ -1,6 +1,7 @@
 # Dictate Custom roadmap and release state
 
-Last updated: 2026-10-20 onboarding. This is the owner's agreed **provisional** release
+Last updated: 2026-10-21 bug intake (onboarding baseline: 2026-10-20).
+This is the owner's agreed **provisional** release
 sequence. Discuss evidence-based changes before changing order or design. Completing
 one task does not authorize the next feature. See [project context](PROJECT_CONTEXT.md),
 [decision records](decisions/) and [agent policy](../AGENTS.md).
@@ -44,8 +45,15 @@ was created by this task. Recheck live refs before future integration or release
 ## Release 1 — Dictate Custom 6.4.0-jack.1
 
 **Implemented and merged: source verified. Signed: historically reported, pending
-artifact recovery/reverification. Device-tested: no acceptance results supplied.
-Published: no GitHub release; private distribution pending approval.**
+artifact recovery/reverification. Device-tested: partial owner-reported results;
+full acceptance pending. Published: no GitHub release at onboarding; later distribution
+status not independently verified.**
+
+On 2026-10-21 the owner described this as the released baseline and reported working
+settings synchronization, connected-phone dictation and some successful standalone
+dictation. A low-priority handoff bug remains; see [known bugs](#known-bugs--triage).
+This supplements the earlier onboarding status without establishing complete acceptance
+or independently verified artifact/distribution status.
 
 Scope: Groq regional Cantonese normalization; independently installable custom phone;
 matching custom Wear companion; later production-signing preparation. Both custom
@@ -116,8 +124,10 @@ the evidence and a build/signing plan rather than silently replacing them.
 
 ### Physical acceptance checklist
 
-All boxes are **pending**. Record device/OS, APK hash, test date and observed result
-when actual tests occur. Existing build/source evidence cannot check a box.
+All boxes await complete recorded acceptance evidence. Partial owner observations
+from 2026-10-21 are captured in the linked bug report above. Record device/OS, APK hash,
+test date and observed result for acceptance. Existing build/source evidence cannot
+check a box.
 
 Samsung Galaxy Z Fold7:
 
@@ -204,6 +214,12 @@ legacy behavior and optional rewording remain compatible. Top-level Languages & 
 continues to manage IME layouts. Dependency: stable profiles, approved route UX and
 fallback policy, plus explicit Wear compatibility decisions and tests.
 
+## Known bugs / triage
+
+| Bug | Priority | Status and next step |
+| --- | --- | --- |
+| [Wear tethered-to-standalone handoff](bugs/wear-tethered-standalone-handoff.md) | Low | Owner-reported delays/errors after phone disconnection; root cause unconfirmed. Retain proposed bounded availability/setup checks and duplicate-request protection for later investigation and scope approval. No fix implemented or release assigned. |
+
 ## Review and release gates
 
 For meaningful authorized features: requirements/design discussion, bounded implementer
@@ -219,6 +235,7 @@ The small Groq fix is a potential upstream contribution only; no submission is a
 ## Release history
 
 No GitHub releases were present at the 2026-10-20 onboarding inspection. Release 1
-remains the prepared-but-unvalidated candidate described above. Add later history with
+was the prepared-but-unvalidated candidate at onboarding; partial device results and
+the owner's later released-baseline description are recorded above. Add later history with
 exact source commit, artifact hashes, signature verification, acceptance evidence,
 distribution channel and approval; do not equate a signed candidate with a public release.
