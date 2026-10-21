@@ -102,6 +102,23 @@ does not authorize implementation, release assignment or closure as verified wit
 evidence. If access is unavailable, report the blocker and preserve a local intake
 draft without claiming it is shared. Separate sessions are not automatically notified.
 
+For every issue created through this workflow, automatically apply exactly one type
+label: `bug` for a reported failure of expected behavior (root cause may be unconfirmed),
+or `enhancement` for a new capability, improvement or exploratory task without a reported
+defect. Classify by the issue's objective; keep investigation uncertainty explicit.
+Include the label in the creation request and verify it afterwards. When updating an
+existing issue, ensure its type is correct and preserve unrelated labels; use additive
+label operations rather than replacing the whole set. Report any labeling failure.
+
+Use custom priority labels: `priority: critical`, `priority: high`, `priority: medium`
+or `priority: low`. Priority expresses scheduling urgency, not proof of severity or
+release assignment. Apply at most one, based on an explicit owner decision; otherwise
+leave priority unset and record that triage is needed (recommendations remain proposals).
+Do not silently assign a default priority or override the owner's choice. Verify label
+changes, and reconcile superseded priority/type labels without removing unrelated ones.
+These rules govern authorized agent issue intake; they do not install a GitHub workflow
+that classifies issues created manually or by unrelated integrations.
+
 Documentation ownership and branches:
 
 - Coordinator: own cross-feature context, approved decisions and release priorities.
