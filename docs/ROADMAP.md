@@ -1,6 +1,6 @@
 # Dictate Custom roadmap and release state
 
-Last updated: 2026-10-21 workflow merge and issue-migration attempt
+Last updated: 2026-10-21 workflow merge and successful Wear issue migration
 (onboarding baseline: 2026-10-20).
 This is the owner's agreed **provisional** release
 sequence. Discuss evidence-based changes before changing order or design. Completing
@@ -229,22 +229,19 @@ fallback policy, plus explicit Wear compatibility decisions and tests.
 GitHub Issues is the owner-approved shared backlog across branches and sessions.
 Keep detailed task status there and link issues here for release planning.
 
-**Migration blocker, verified 2026-10-21:** creating the Wear handoff issue returned
-GitHub HTTP 410, "Issues has been disabled in this repository." The connected tools
-cannot change that repository setting. A workspace `gh api` access check also returned
-Forbidden, so enabling the feature through the CLI was not possible. The owner must
-enable **Settings → General → Features → Issues** before migration can proceed.
-An empty issue-list response alone does not establish that issue creation is available.
+**Migration completed 2026-10-21:** after the owner enabled Issues, repository metadata
+reported `has_issues: true`; a duplicate check found no existing issues and creation of
+[Wear handoff issue #1](https://github.com/jack-chung/dictate-keyboard/issues/1) succeeded.
+Earlier attempts returned HTTP 410 while Issues was disabled; that blocker is resolved.
 
-The Wear report below remains the temporary intake/status record. Migration was
-requested and attempted but no issue was created; once Issues is enabled, recheck for
-duplicates, create/update its issue and link it here and in the report. Other candidate
-limitations/tweaks in PROJECT_CONTEXT still require triage rather than being treated as
-confirmed bugs or automatically scheduled fixes.
+Issue #1 owns current task status, priority and subsequent evidence. The original report
+is retained as historical supporting evidence. Migration does not authorize implementation
+or assign a release. Other candidate limitations/tweaks in PROJECT_CONTEXT still require
+triage rather than being treated as confirmed bugs or automatically scheduled fixes.
 
-| Bug | Priority | Status and next step |
+| Bug / authoritative tracker | Supporting evidence | Release assignment |
 | --- | --- | --- |
-| [Wear tethered-to-standalone handoff](bugs/wear-tethered-standalone-handoff.md) | Low | Owner-reported delays/errors after phone disconnection; root cause unconfirmed. Retain proposed bounded availability/setup checks and duplicate-request protection for later investigation and scope approval. No fix implemented or release assigned. |
+| [#1 — Wear tethered-to-standalone handoff](https://github.com/jack-chung/dictate-keyboard/issues/1) | [Original intake](bugs/wear-tethered-standalone-handoff.md) | Unassigned |
 
 ## Review and release gates
 

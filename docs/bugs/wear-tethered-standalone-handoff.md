@@ -1,9 +1,13 @@
 # Wear OS tethered-to-standalone transcription handoff
 
-Reported: 2026-10-21. Priority: **low**. Status: **reported; awaiting investigation**.
-No fix, release assignment or implementation authorization is recorded. Current task
-is documentation only. Source findings below come from another Codex session via
-the owner's report; they were not independently rechecked during this intake.
+Reported: 2026-10-21. Migrated to
+[GitHub issue #1](https://github.com/jack-chung/dictate-keyboard/issues/1).
+**Current priority, status and follow-up evidence are maintained in that issue.**
+This document preserves the original intake as historical supporting evidence.
+At intake the owner specified low priority; no fix, release assignment or implementation
+authorization was recorded. Source findings below came from another Codex session via
+the owner's report and were not independently rechecked during intake. Pending tests
+and proposed changes below describe that intake snapshot, not a separate live tracker.
 
 ## Affected baseline and impact
 
@@ -127,4 +131,5 @@ signed release without separate authorization. A future distributed update must
 increase custom versionCode and retain the existing signing identity. No code changes,
 fix branch, test execution or signed build were produced by this documentation intake.
 
-Tracking: [roadmap](../ROADMAP.md#known-bugs--triage).
+Tracking: [GitHub issue #1](https://github.com/jack-chung/dictate-keyboard/issues/1).
+Planning reference: [roadmap](../ROADMAP.md#known-bugs--triage).
