@@ -1,6 +1,7 @@
 # Dictate Custom roadmap and release state
 
-Last updated: 2026-10-21 bug intake (onboarding baseline: 2026-10-20).
+Last updated: 2026-10-21 workflow merge and issue-migration attempt
+(onboarding baseline: 2026-10-20).
 This is the owner's agreed **provisional** release
 sequence. Discuss evidence-based changes before changing order or design. Completing
 one task does not authorize the next feature. See [project context](PROJECT_CONTEXT.md),
@@ -21,6 +22,11 @@ and Wear bug intake. The merge changes documentation only. Further policy update
 use a new documentation branch and require their own merge approval. No transcription
 implementation, APK distribution, installation, upstream PR, tag or release publication
 is authorized by the documentation merge.
+
+The owner subsequently approved the agent-workflow policy merge. Main was
+fast-forwarded from `e7622cdc18b8ee2e36c3586b481b13406245b12d` to
+`1df3f88bb08d33d650b01cd9a92513afd54311fc`. This makes the shared-backlog and
+documentation-ownership rules available on main; it does not authorize feature work.
 
 ## Repository baseline verified during onboarding
 
@@ -221,9 +227,20 @@ fallback policy, plus explicit Wear compatibility decisions and tests.
 ## Known bugs / triage
 
 GitHub Issues is the owner-approved shared backlog across branches and sessions.
-Keep detailed task status there and link issues here for release planning. The existing
-Wear report below has not yet been migrated to an issue; it remains the intake record
-until that migration is performed. No GitHub issue creation is claimed by this update.
+Keep detailed task status there and link issues here for release planning.
+
+**Migration blocker, verified 2026-10-21:** creating the Wear handoff issue returned
+GitHub HTTP 410, "Issues has been disabled in this repository." The connected tools
+cannot change that repository setting. A workspace `gh api` access check also returned
+Forbidden, so enabling the feature through the CLI was not possible. The owner must
+enable **Settings → General → Features → Issues** before migration can proceed.
+An empty issue-list response alone does not establish that issue creation is available.
+
+The Wear report below remains the temporary intake/status record. Migration was
+requested and attempted but no issue was created; once Issues is enabled, recheck for
+duplicates, create/update its issue and link it here and in the report. Other candidate
+limitations/tweaks in PROJECT_CONTEXT still require triage rather than being treated as
+confirmed bugs or automatically scheduled fixes.
 
 | Bug | Priority | Status and next step |
 | --- | --- | --- |
