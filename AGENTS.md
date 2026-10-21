@@ -82,6 +82,48 @@ private sandbox silently.
 
 ## Durable knowledge
 
+Main holds authoritative project instructions, context, approved decisions and release
+plans; there is no permanent planner branch. Before planning or release recommendations,
+refresh current main and relevant feature refs and read the shared GitHub backlog.
+Do not switch another agent's branch or overwrite unrelated work to obtain current
+docs; read remote refs or use a separate worktree. Note any inability to refresh.
+Older branches/sessions may have stale instructions; compare with current main and
+provide current policy explicitly in delegated task briefs.
+
+GitHub Issues in `jack-chung/dictate-keyboard` is the authoritative shared backlog for
+bugs, enhancements, tweaks and investigations, independent of working branch. When the
+owner asks to "log this in the project backlog" (or equivalent), an authorized session
+should search for duplicates, then create/update the issue with a sanitized summary,
+impact, reproduction/expected behavior, affected baseline, evidence, hypotheses and
+validation needs as available. State unknowns; distinguish reported, reproduced,
+root-cause-confirmed, fixed and verified. Record owner-specified priority; otherwise
+mark priority/release suggestions as proposals. Return the issue URL. Issue logging
+does not authorize implementation, release assignment or closure as verified without
+evidence. If access is unavailable, report the blocker and preserve a local intake
+draft without claiming it is shared. Separate sessions are not automatically notified.
+
+Documentation ownership and branches:
+
+- Coordinator: own cross-feature context, approved decisions and release priorities.
+  Put standalone doc changes on short-lived branches from current main; commit/push
+  within authorized scope and obtain merge approval. Do not commit directly to main.
+- Implementer: update docs only when assigned, on the same feature/fix branch as the
+  implementation. Explain enduring behavior, compatibility, evidence and limitations.
+  Do not independently change priorities, approve designs or expand scope. Device
+  acceptance requires actual authorized device evidence, not automated tests alone.
+  Include doc changes in the implementation report.
+- Reviewer: remain read-only and report findings to the coordinator; do not edit docs
+  or issues. Other sessions may log issues when authorized, without modifying main or
+  the planner's branch. The coordinator assesses all proposed documentation changes.
+
+Keep ROADMAP concise: release goals, dependencies and issue links. Detailed task status
+lives in Issues; `docs/bugs/` reports may remain supporting evidence or intake drafts,
+but must link to an issue once created rather than maintain a competing status record.
+Refresh branches against current main before final review using authorized Git
+operations; report divergence/conflicts without rewriting history silently. Reconcile
+both textual conflicts and semantic contradictions using approved decisions, current
+source and test evidence, and current issue status. Never blindly select one side.
+
 Update this file only for stable policy; PROJECT_CONTEXT for enduring architecture;
 ROADMAP for status, priority and acceptance evidence; decision records for substantial
 approved design changes. Keep historical rationale, source/commit references and

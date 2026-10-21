@@ -7,6 +7,14 @@ The owner is the decision maker; the primary Codex planner coordinates discussio
 implementation and independent review. See [AGENTS.md](../AGENTS.md) for policy and
 [ROADMAP.md](ROADMAP.md) for changing status and acceptance evidence.
 
+**Owner-approved workflow (2026-10-21).** Main holds authoritative repository docs;
+the coordinator uses short-lived documentation branches, and assigned implementers
+update related docs on their implementation branches. Reviewers remain read-only.
+GitHub Issues is the shared cross-session backlog; ROADMAP links issues and captures
+release-level planning. Issue logging does not approve implementation. Existing bug
+reports are supporting evidence until linked to issues; no issue migration is claimed
+here. Branch updates require review for semantic as well as textual conflicts.
+
 Evidence labels used here:
 
 - **Owner decision**: explicitly selected requirement or architecture; not proof of implementation.

@@ -14,9 +14,13 @@ verified (or explicitly attributed historical report); device-tested = recorded 
 acceptance evidence; published = release made available through an authorized channel.
 These states are separate. In particular, automated tests do not establish device success.
 
-Onboarding authorizes documentation inspection, a documentation-only branch, commit
-and non-force push. It does not authorize merge, new transcription implementation,
-APK distribution, device installation, upstream PRs, tags or release publication.
+The owner approved the handoff merge on 2026-10-21. Main was fast-forwarded from
+`99805943618077059d95204f34407cfb7f8e92ed` to
+`e7622cdc18b8ee2e36c3586b481b13406245b12d`, including the onboarding knowledge base
+and Wear bug intake. The merge changes documentation only. Further policy updates
+use a new documentation branch and require their own merge approval. No transcription
+implementation, APK distribution, installation, upstream PR, tag or release publication
+is authorized by the documentation merge.
 
 ## Repository baseline verified during onboarding
 
@@ -215,6 +219,11 @@ continues to manage IME layouts. Dependency: stable profiles, approved route UX 
 fallback policy, plus explicit Wear compatibility decisions and tests.
 
 ## Known bugs / triage
+
+GitHub Issues is the owner-approved shared backlog across branches and sessions.
+Keep detailed task status there and link issues here for release planning. The existing
+Wear report below has not yet been migrated to an issue; it remains the intake record
+until that migration is performed. No GitHub issue creation is claimed by this update.
 
 | Bug | Priority | Status and next step |
 | --- | --- | --- |
