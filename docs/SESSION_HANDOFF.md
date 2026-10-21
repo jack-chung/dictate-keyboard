@@ -19,7 +19,27 @@ Current main contains the approved ownership and labeling rules. Owner approval 
 required for each main merge unless explicitly included in an authorized task.
 No transcription feature implementation or release action is authorized by this handoff.
 
-## Immediate task: create four priority label definitions and colors
+## Completion update: 2026-10-21
+
+The priority-label task below is complete. The resumed runtime successfully read and
+wrote repository metadata through `gh` against `api.github.com`. It created critical,
+high and medium, updated the existing low label, and read back all four exact names
+and requested colors. Issue #1 remained open with exactly `bug` and `priority: low`
+before and after the change. No issue priority assignment was changed.
+
+Current main was refreshed and remains `4b56780e`. The coordinator reviewed all three
+changed files on `docs/issue-tracker-setup` against current main: they link the successful
+issue migration and retain historical evidence. The branch is one commit behind and
+two ahead of main; its changes do not modify AGENTS.md. Merge approval is still pending,
+and a future integration must preserve main's issue-label policy. No main merge, feature
+implementation, additional issue intake, build or release action occurred.
+
+The sections below preserve the original handoff snapshot. Their label-access blocker
+and gray-low-label observations are historical and superseded by this completion update.
+There is no remaining authorized priority-label work to resume; the documentation merge
+and candidate issue intake remain owner decisions.
+
+## Completed task: create four priority label definitions and colors
 
 The owner explicitly requested creation of these repository labels, updating existing
 definitions as needed, in `jack-chung/dictate-keyboard`:
@@ -98,7 +118,7 @@ quota fallback, profiles and language routing. No next feature has been authoriz
 Release/signing/artifact and device-validation claims retain their existing evidence
 labels; the Wear report supplies only partial owner-reported device observations.
 
-## Next user-facing response
+## Original next-response instruction (fulfilled)
 
 After reading this note and current sources, briefly confirm recovered scope and
 continue the authorized priority-label creation task. Do not ask the owner to paste
